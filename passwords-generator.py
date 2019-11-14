@@ -33,7 +33,7 @@ def pass_generate(pass_number, pass_len):
             password = password +  chars[random.randint(0,len(chars) - 1)]
             i = i + 1
         print("Password {} : \033[1;32;40m {} \033[0;37;40m".format(x + 1, password))
-        password_to_save = password_to_save + "\n" + "Password : " + password
+        password_to_save = password_to_save + "\n" + "Password " + str(x + 1) + " : " + password
         print("-" * (pass_len + 14))
         x = x + 1
     return(password_to_save)
@@ -46,10 +46,11 @@ def main():
     pass_len = int(input("\033[1;31m[2] - How many characters in each password ? : \033[0;37;40m"))
 
     save = input("\033[1;31m[3] - Do you want to save the passwords in a file ? (yes/no) : \033[0;37;40m")
+    save = save.upper()
 
     save_file = pass_generate(pass_number, pass_len)
 
-    if (save == "yes" or save == "y"):
+    if (save == "YES" or save == "Y"):
         pass_file = open("pwd_generator.txt", "w")
         file = pass_file.write(save_file)
         pass_file.close()
