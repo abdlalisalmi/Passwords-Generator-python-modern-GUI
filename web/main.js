@@ -27,15 +27,27 @@ const copyBtn = document.querySelector("#copy-btn");
 
 const generateBtn = document.getElementById('generate');
 generateBtn.addEventListener('click', () => {
-	eel.pass_generate(1, sliderValue.getAttribute("data-length"));
-	document.querySelector('.result').innerHTML += '<button id="copy-btn" onclick="copyPassword()"><img src="copy.svg" width="16px"></button>';
-	copyInfo.style.opacity = '1';
-	copiedInfo.style.opacity = "0";
+	let uppercase = document.getElementById('uppercase').checked;
+	let lowercase = document.getElementById('lowercase').checked;
+	let number = document.getElementById('number').checked;
+	let symbol = document.getElementById('symbol').checked;
+	
+	eel.pass_generate(
+		sliderValue.getAttribute("data-length"),
+		uppercase,
+		lowercase,
+		number,
+		symbol
+	);
 })
 
 eel.expose(showPassword);
 function showPassword(password) {
 	document.getElementById('result').innerText = password;
+	if (!document.getElementById('copy-btn')) {
+		document.querySelector('.result').innerHTML += '<button id="copy-btn" onclick="copyPassword()"><img src="copy.svg" width="16px"></button>';
+	}
+	// document.querySelector('.result').innerHTML += '<button id="copy-btn" onclick="copyPassword()"><img src="copy.svg" width="16px"></button>';
 }
 
 // Copy Password in clipboard
@@ -48,7 +60,13 @@ function copyPassword() {
 	textarea.select();
 	document.execCommand("copy");
 	textarea.remove();
+}
 
-	copyInfo.style.opacity = '0';
-	copiedInfo.style.opacity = "1";
+// No option has been selected
+eel.expose(showError)
+function showError() {
+	document.getElementById('result').innerText = "You need to select at least one type of passwords";
+	if (document.getElementById('copy-btn')) {
+		document.getElementById('copy-btn').remove()
+	}
 }
