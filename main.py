@@ -14,7 +14,6 @@ def pass_generate(pass_number, pass_len):
              'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 
              'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
     x = 0
-    print(pass_len)
     while (x < pass_number):
         password = ""
         i = 0
@@ -30,6 +29,7 @@ if __name__ == '__main__':
     size = (800,720) #size of App Window
     app_options = {
       'mode' : "chrome",
-      'close_callback' : close_callback
+      'close_callback' : close_callback,
+      'port': 0
     }
     eel.start('index.html', options=app_options, size=size, suppress_error=True)
