@@ -1,7 +1,3 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
-
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +14,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: sans-serif;
 }
 button {
     border: 0;
@@ -33,8 +29,8 @@ button {
 .container h2.title {
     font-size: 1.75rem;
     margin: 10px -5px;
-    margin-bottom: 30px;
-    color: #fff;
+    margin-bottom: 40px;
+    color: rgb(235, 235, 235);
 }
 .result {
     position: relative;

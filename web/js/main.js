@@ -45,7 +45,7 @@ eel.expose(showPassword);
 function showPassword(password) {
 	document.getElementById('result').innerText = password;
 	if (!document.getElementById('copy-btn')) {
-		document.querySelector('.result').innerHTML += '<button id="copy-btn" onclick="copyPassword()"><img src="copy.svg" width="16px"></button>';
+		document.querySelector('.result').innerHTML += '<button id="copy-btn" onclick="copyPassword()"><img src="icon/copy.svg" width="16px"></button>';
 	}
 	// document.querySelector('.result').innerHTML += '<button id="copy-btn" onclick="copyPassword()"><img src="copy.svg" width="16px"></button>';
 }
@@ -69,4 +69,8 @@ function showError() {
 	if (document.getElementById('copy-btn')) {
 		document.getElementById('copy-btn').remove()
 	}
+}
+
+function openGithubRepo() {
+	window.open("https://github.com/abdlalisalmi/Passwords-Generator")
 }
