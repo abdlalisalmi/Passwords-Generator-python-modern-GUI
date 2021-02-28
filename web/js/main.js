@@ -74,3 +74,8 @@ function showError() {
 function openGithubRepo() {
 	window.open("https://github.com/abdlalisalmi/Passwords-Generator")
 }
+
+// disable righte click
+document.addEventListener("contextmenu", function(e){
+    e.preventDefault();
+}, false);

@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* NO SELECT + HIGHLIGHT COLOR */
+    user-select: none;
 }
 body {
     width: 100%;
